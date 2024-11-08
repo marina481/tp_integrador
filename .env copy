@@ -1,0 +1,12 @@
+PORT_EXPRESS = 3000
+HOST_EXPRESS = 127.0.0.1
+
+##########
+# SQL
+##########
+
+USER_DB = user
+PASSWORD_DB = pass
+SERVER_NAME = localhost
+NAME_DB = IFTS11
+PORT_DB = 1434
