@@ -16,7 +16,7 @@ export async function getConnection() {
     try {
         const pool = await sql.connect(dbConfig);
 
-         const resultado = await pool.request().query('USE HOTEL SELECT * FROM RESERVAS');
+         const resultado = await pool.request().query('SELECT * FROM RESERVAS');
          console.log(resultado)
 
         return pool
