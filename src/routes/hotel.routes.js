@@ -1,8 +1,9 @@
 import { Router } from "express"
-import { getReservasController} from '../controller/hotel.controller.js'
+import { agregarReservaController, getReservasController} from '../controller/hotel.controller.js'
 
 const router = Router();
 
-router.get('/Reservas', getReservasController)
+router.get('/reservas', getReservasController);
+router.post('/reservas',agregarReservaController);
 
 export default router

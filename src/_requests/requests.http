@@ -1,3 +1,19 @@
 @api = http://localhost:3000
 
-GET {{api}}/Reservas
+GET {{api}}/reservas
+
+
+###
+
+
+POST {{api}}/reservas
+Content-Type: application/json
+
+{
+    "nombre": "Raúl Gómez",
+    "telefono": "0303456",
+    "email": "raulgomez@example.com",
+    "habitacion": "101",
+    "fecha_inicio": "2024-10-11",
+    "fecha_fin": "2024-10-12"
+}
