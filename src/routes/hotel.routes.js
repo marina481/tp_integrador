@@ -3,7 +3,7 @@ import { agregarReservaController, getReservasController} from '../controller/ho
 
 const router = Router();
 
-router.get('/reservas', getReservasController);
-router.post('/reservas',agregarReservaController);
+router.get('/Reservas', getReservasController);
+router.post('/Reservas',agregarReservaController);
 
 export default router

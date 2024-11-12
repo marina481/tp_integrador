@@ -1,12 +1,12 @@
 @api = http://localhost:3000
 
-GET {{api}}/reservas
+GET {{api}}/Reservas
 
 
 ###
 
 
-POST {{api}}/reservas
+POST {{api}}/Reservas
 Content-Type: application/json
 
 {
