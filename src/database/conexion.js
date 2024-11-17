@@ -16,10 +16,9 @@ export async function getConnection() {
     try {
         const pool = await sql.connect(dbConfig);
 
-         const resultado = await pool.request().query('SELECT * FROM RESERVAS');
-         console.log(resultado)
 
-        return pool
+
+        return pool;
     } catch (error) {
         console.log(error)
     }
