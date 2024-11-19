@@ -10,10 +10,21 @@ POST {{api}}/Reservas
 Content-Type: application/json
 
 {
-    "nombre": "Raúl Gómez",
+    "nombre": "luis Gómez",
     "telefono": "0303456",
     "email": "raulgomez@example.com",
     "habitacion": "101",
     "fecha_inicio": "2024-10-11",
     "fecha_fin": "2024-10-12"
+}
+
+### 
+POST {{api}}/Habitaciones
+Content-Type: application/json
+
+{
+    "title": "Prueba4",
+    "price": 56560,
+    "description": "Habitación con vista al mar",
+    "imageUpload": "http://localhost:3000/images/HabDeluxe/HB-Baño.avif"
 }

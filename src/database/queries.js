@@ -15,3 +15,13 @@ export default {
     @fecha_inicio,
     @fecha_fin);`
 }
+
+export const queries = {
+    addHabitacion: `
+        INSERT INTO Habitaciones (TITLE, PRICE, DESCRIPTION, IMAGEUPLOAD)
+        VALUES (@title, @price, @description, @imageUpload)
+    `
+};
+
+
+
