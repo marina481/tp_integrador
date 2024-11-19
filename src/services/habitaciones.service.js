@@ -2,7 +2,7 @@ import {agregarHabitacionesRepository} from '../repository/habitaciones.reposito
 
 export const agregarHabitacionesService = async (nuevaHabitacion) => {
     try {
-        console.log('Entre al try de service')
+        console.log('Entre al try de habitaciones')
         const habitacion= await agregarHabitacionesRepository(nuevaHabitacion);
         return habitacion;
     }
