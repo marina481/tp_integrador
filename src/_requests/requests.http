@@ -4,16 +4,17 @@ GET {{api}}/Reservas
 
 
 ###
+DELETE {{api}}/Reservas/6
 
-
+###
 POST {{api}}/Reservas
 Content-Type: application/json
 
 {
-    "nombre": "Raúl Gómez",
+    "nombre": "Amicia De Rune",
     "telefono": "0303456",
     "email": "raulgomez@example.com",
     "habitacion": "101",
-    "fecha_inicio": "2024-10-11",
-    "fecha_fin": "2024-10-12"
+    "fecha_inicio": "2024-10-21",
+    "fecha_fin": "2024-10-22"
 }

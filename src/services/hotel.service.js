@@ -1,4 +1,4 @@
-import {getReservasRepository, agregarReservaRepository} from '../repository/hotel.repository.js'
+import {getReservasRepository, agregarReservaRepository, eliminarReservaRepository} from '../repository/hotel.repository.js'
 
 export const getReservasService = async () => {
     try {
@@ -21,5 +21,15 @@ export const agregarReservaService = async (nuevaReserva) => {
     catch(error) {
         console.error('Error desde el servicio' , error)
         throw new Error('No se han podido obtener los datos')
+    }
+}
+
+export const eliminarReservaService = async (id) => {
+    try {
+        const reservaEliminada = await eliminarReservaRepository(id);
+        return reservaEliminada;
+    }
+    catch (error){
+        console.error('Error desde el servicio' , error)
     }
 }

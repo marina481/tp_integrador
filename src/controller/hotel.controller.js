@@ -1,10 +1,9 @@
-import {getReservasService, agregarReservaService} from "../services/hotel.service.js"
+import {getReservasService, agregarReservaService, eliminarReservaService} from "../services/hotel.service.js"
 
 export const getReservasController = async (req,res) => {
     try{
-        console.log('Entre al try de controller')
         let reservas = await getReservasService()
-        console.log('Volvi al try de controller')
+        
         reservas.recordset.length === 0 ? res.send('La base de datos is empty') : res.send(reservas.recordset)
     }
     catch(error){
@@ -30,5 +29,22 @@ export const agregarReservaController = async (req, res) => {
     } catch (error) {
         console.error(error)
         res.status(500).send({message:'Error del controller al agregar la reserva'})
+    }
+}
+
+export const eliminarReservaController = async (req, res) => {
+    const { id } = req.params;
+    try{
+        const reservaEliminada = await eliminarReservaService(id)
+
+        if(!reservaEliminada) {
+            return res.status(404).send({mensaje: `Ninguna reserva tiene el ID ${id}`})
+        }
+
+        res.status(200).send({mensaje: `Reserva con ID ${id} eliminada`})
+    }
+    catch (error){
+        console.error(error)
+        res.status(500).send({message:'Error del controller al eliminar la reserva'})
     }
 }

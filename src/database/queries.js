@@ -1,3 +1,5 @@
+import e from "cors";
+
 export default {
     getReservas:'USE HOTEL SELECT * FROM RESERVAS',
     addReserva: `USE HOTEL INSERT INTO Reservas
@@ -13,5 +15,9 @@ export default {
     @email,
     @habitacion,
     @fecha_inicio,
-    @fecha_fin);`
+    @fecha_fin);`,
+
+    getReservabyId:'USE HOTEL SELECT * FROM RESERVAS WHERE ID = @id',
+    deleteReserva:'USE HOTEL DELETE FROM RESERVAS WHERE ID = @id'
+    
 }

@@ -5,7 +5,6 @@ export const getReservasRepository = async () => {
     const pool = await getConnection();
 
     try{
-        console.log('Entre al try de Repository')
         const resultado = await pool.request().query(queries.getReservas)
         
         console.table(resultado.recordset)
@@ -45,5 +44,32 @@ export const agregarReservaRepository = async (nuevaReserva) => {
         throw new Error('El repositorio no puede agregar la reserva.')
     } finally {
         pool.close()
+    }
+}
+
+export const eliminarReservaRepository = async (id) => {
+    const pool = await getConnection();
+
+    try{
+        const reservaEncontrada = await pool.request().input('id', sql.Int, id).query(queries.getReservabyId)
+        if (reservaEncontrada.recordset.length === 0){
+            throw new Error('No hay reserva con ese id')
+        }
+        else{
+            console.log(`Se elimino la reserva con el ID: ${id}`)
+            console.table(reservaEncontrada.recordset[0])
+        }
+
+        const reservaEliminada = reservaEncontrada.recordset[0]
+
+        await pool.request().input('id', sql.Int, id).query(queries.deleteReserva)
+        return reservaEliminada
+    }
+    catch(error){
+        console.log('Error en el repositorio:', error)
+        throw new Error('Error al eliminar la reserva de base')
+    }
+    finally{
+        pool.close
     }
 }
