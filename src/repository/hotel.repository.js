@@ -1,12 +1,13 @@
 import { getConnection, sql, queries } from '../database/export.js'
 //import queries from '../database/queries.js'
 
-export const getReservasRepository = async () => {
+export const getResenasRepository = async () => {
     const pool = await getConnection();
 
     try{
-        const resultado = await pool.request().query(queries.getReservas)
-        
+        console.log('Entre al try de Repository')
+        const resultado = await pool.request().query(queries.getResenas)
+                
         console.table(resultado.recordset)
 
         return resultado
@@ -14,21 +15,62 @@ export const getReservasRepository = async () => {
     }
     catch(error){
         console.log('Error en el repositorio:', error)
-        throw new Error('Anda caprichosa la base de datos')
-    }
+        throw new Error('tira error')
+      }
     finally {
         pool.close
     }
 }
 
-export const agregarReservaRepository = async (nuevaReserva) => {
-    const { nombre, telefono, email, habitacion, fecha_inicio, fecha_fin } = nuevaReserva;
-    console.log(nuevaReserva);
+export const getReservasRepository = async () => {
     const pool = await getConnection();
+
+    try{
+        const resultado = await pool.request().query(queries.getReservas)
+                
+        console.table(resultado.recordset)
+
+        return resultado
+
+    }
+    catch(error){
+        console.log('Error en el repositorio:', error)
+       throw new Error('Anda caprichosa la base de datos')
+      }
+    finally {
+        pool.close
+    }
+}
+
+export const agregarResenasRepository = async (nuevaResena) => {
+    const { descripcion } = nuevaResena;
+    console.log(nuevaResena);
+  const pool = await getConnection();
 
     try {
         const resultado = await pool.request()
-            .input('nombre', sql.NVarChar, nombre)
+                    .input('descripcion', sql.NVarChar, descripcion)
+            .query(queries.addReserva);
+
+        const nuevaResena = { descripcion }
+        console.log("Nueva resena:")
+        console.table(nuevaResena);
+    } catch(error) {
+        console.log('Error en el repositorio:', error)
+        throw new Error('El repositorio no puede agregar la resena.')
+    } finally {
+        pool.close()
+    }
+
+  
+export const agregarReservaRepository = async (nuevaReserva) => {
+    const { nombre, telefono, email, habitacion, fecha_inicio, fecha_fin } = nuevaReserva;
+    console.log(nuevaReserva);
+  const pool = await getConnection();
+
+    try {
+        const resultado = await pool.request()
+         .input('nombre', sql.NVarChar, nombre)
             .input('telefono', sql.Int, telefono)
             .input('email', sql.NVarChar, email)
             .input('habitacion', sql.Int, habitacion)
@@ -72,4 +114,3 @@ export const eliminarReservaRepository = async (id) => {
     finally{
         pool.close
     }
-}

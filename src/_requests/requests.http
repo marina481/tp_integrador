@@ -1,7 +1,7 @@
 @api = http://localhost:3000
 
-GET {{api}}/Reservas
 
+GET {{api}}/Reservas
 
 ###
 DELETE {{api}}/Reservas/6
@@ -17,4 +17,16 @@ Content-Type: application/json
     "habitacion": "101",
     "fecha_inicio": "2024-10-21",
     "fecha_fin": "2024-10-22"
+}
+
+GET {{api}}/Resenas
+
+###
+
+POST {{api}}/Resenas
+Content-Type: application/json
+
+{
+    "descripcion": "Excelente estadía. Las habitaciones eran cómodas, limpias y con una decoración moderna. El personal fue muy amable y siempre dispuesto a ayudar. 
+    El desayuno variado y delicioso, ideal para comenzar el día. La ubicación es perfecta, cerca de los principales puntos de interés. Sin duda, volvería a hospedarme aquí. Lo recomiendo 100%."
 }
