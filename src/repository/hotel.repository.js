@@ -6,7 +6,7 @@ export const getResenasRepository = async () => {
 
     try{
         console.log('Entre al try de Repository')
-        const resultado = await pool.request().query(queries.getReservas)
+        const resultado = await pool.request().query(queries.getResenas)
         
         console.table(resultado.recordset)
 

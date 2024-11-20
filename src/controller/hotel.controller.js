@@ -3,9 +3,9 @@ import {getResenasService, agregarResenasService} from "../services/hotel.servic
 export const getResenasController = async (req,res) => {
     try{
         console.log('Entre al try de controller')
-        let resenas = await getReservasService()
+        let Resenas = await getResenasService()
         console.log('Volvi al try de controller')
-        resenas.recordset.length === 0 ? res.send('La base de datos is empty') : res.send(resenas.recordset)
+        Resenas.recordset.length === 0 ? res.send('La base de datos is empty') : res.send(Resenas.recordset)
     }
     catch(error){
         console.error(error)
@@ -15,17 +15,17 @@ export const getResenasController = async (req,res) => {
 }
 
 export const agregarResenasController = async (req, res) => {
-    const { resenas } = req.body;
+    const { Resenas } = req.body;
     console.log("req.body");
     console.log(req.body);
 
-    if (resenas == null) {
+    if (Resenas == null) {
         res.status(400).send({ message: 'Hay campos en blanco, por favor complete todos los campos.' });
     }
 
     try {
         const nuevaResena = await agregarResenaService({descripcion})
-        res.status(200).send({mensaje: 'Reserva agregada correctamente', resena: nuevaResena})
+        res.status(200).send({mensaje: 'Resena agregada correctamente', Resenas: nuevaResena})
         
     } catch (error) {
         console.error(error)
