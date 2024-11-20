@@ -41,17 +41,17 @@ export const agregarResenasService = async (nuevaResenas) => {
     }
   }
 
-export const agregarReservaService = async (nuevaReserva) => {
+  export const agregarReservaService = async (nuevaReserva) => {
     try {
         console.log('Entre al try de service')
         const reserva = await agregarReservaRepository(nuevaReserva);
         return reserva;
-          }
+    }
     catch(error) {
         console.error('Error desde el servicio' , error)
         throw new Error('No se han podido obtener los datos')
     }
-  }
+}
 
 
 export const eliminarReservaService = async (id) => {
@@ -63,4 +63,3 @@ export const eliminarReservaService = async (id) => {
         console.error('Error desde el servicio' , error)
     }
 }
-

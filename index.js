@@ -24,8 +24,3 @@ app.use(hotelRoutes)
 app.listen(app.get('port'), app.get('host'), () => {
     console.log(`Servidor corriendo en 'http://${app.get('host')}:${app.get('port')}`)
 })
-
-app.listen(app.get('port'), app.get('host'), () => {
-    console.log(`Servidor corriendo en http://${app.get('host')}:${app.get('port')}`);
-});
-

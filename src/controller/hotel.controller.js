@@ -22,15 +22,17 @@ export const agregarReservaController = async (req, res) => {
     if (nombre == null || telefono == null || email == null || habitacion == null || fecha_inicio == null || fecha_fin == null) {
         res.status(400).send({ message: 'Hay campos en blanco, por favor complete todos los campos.' });
     }
-  
+
     try {
         const nuevaReserva = await agregarReservaService({nombre, telefono, email, habitacion, fecha_inicio, fecha_fin})
         res.status(200).send({mensaje: 'Reserva agregada correctamente', reserva: nuevaReserva})
+        
     } catch (error) {
         console.error(error)
         res.status(500).send({message:'Error del controller al agregar la reserva'})
     }
 }
+
 
 export const eliminarReservaController = async (req, res) => {
     const { id } = req.params;
@@ -46,32 +48,34 @@ export const eliminarReservaController = async (req, res) => {
     catch (error){
         console.error(error)
         res.status(500).send({message:'Error del controller al eliminar la reserva'})
-
-  export const getResenasController = async (req,res) => {
-    try{
-        console.log('Entre al try de controller')
-        let Resenas = await getResenasService()
-        console.log('Volvi al try de controller')
-        Resenas.recordset.length === 0 ? res.send('La base de datos is empty') : res.send(Resenas.recordset)
     }
-    catch(error){
-        console.error(error)
-        res.status(500).send({message:'Error al obtener las resenas'})
-    }
-
 }
 
+export const getResenasController = async (req,res) => {
+try{
+    console.log('Entre al try de controller')
+    let Resenas = await getResenasService()
+    console.log('Volvi al try de controller')
+    Resenas.recordset.length === 0 ? res.send('La base de datos is empty') : res.send(Resenas.recordset)
+}
+catch(error){
+    console.error(error)
+    res.status(500).send({message:'Error al obtener las resenas'})
+}
+}
+
+
 export const agregarResenasController = async (req, res) => {
-    const { Resenas } = req.body;
+    const { descripcion } = req.body;
     console.log("req.body");
     console.log(req.body);
 
-    if (Resenas == null) {
+    if (descripcion == null) {
         res.status(400).send({ message: 'Hay campos en blanco, por favor complete todos los campos.' });
     }
 
     try {
-        const nuevaResena = await agregarResenaService({descripcion})
+        const nuevaResena = await agregarResenasService({descripcion})
         res.status(200).send({mensaje: 'Resena agregada correctamente', Resenas: nuevaResena})
     } catch (error) {
         console.error(error)
