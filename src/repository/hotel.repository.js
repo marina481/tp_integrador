@@ -45,12 +45,12 @@ export const getReservasRepository = async () => {
 export const agregarResenasRepository = async (nuevaResena) => {
     const { descripcion } = nuevaResena;
     console.log(nuevaResena);
-  const pool = await getConnection();
+    const pool = await getConnection();
 
     try {
         const resultado = await pool.request()
-                    .input('descripcion', sql.NVarChar, descripcion)
-            .query(queries.addReserva);
+            .input('descripcion', sql.NVarChar, descripcion)
+            .query(queries.addResenas);
 
         const nuevaResena = { descripcion }
         console.log("Nueva resena:")
@@ -61,16 +61,17 @@ export const agregarResenasRepository = async (nuevaResena) => {
     } finally {
         pool.close()
     }
+}
 
   
 export const agregarReservaRepository = async (nuevaReserva) => {
     const { nombre, telefono, email, habitacion, fecha_inicio, fecha_fin } = nuevaReserva;
     console.log(nuevaReserva);
-  const pool = await getConnection();
+    const pool = await getConnection();
 
     try {
         const resultado = await pool.request()
-         .input('nombre', sql.NVarChar, nombre)
+            .input('nombre', sql.NVarChar, nombre)
             .input('telefono', sql.Int, telefono)
             .input('email', sql.NVarChar, email)
             .input('habitacion', sql.Int, habitacion)
@@ -89,11 +90,13 @@ export const agregarReservaRepository = async (nuevaReserva) => {
     }
 }
 
+
 export const eliminarReservaRepository = async (id) => {
     const pool = await getConnection();
 
     try{
         const reservaEncontrada = await pool.request().input('id', sql.Int, id).query(queries.getReservabyId)
+        console.log(reservaEncontrada)
         if (reservaEncontrada.recordset.length === 0){
             throw new Error('No hay reserva con ese id')
         }
@@ -114,3 +117,4 @@ export const eliminarReservaRepository = async (id) => {
     finally{
         pool.close
     }
+}

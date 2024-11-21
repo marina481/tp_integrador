@@ -16,10 +16,10 @@ export default {
     @fecha_fin);`,
 
     getReservabyId:'USE HOTEL SELECT * FROM RESERVAS WHERE ID = @id',
+
     deleteReserva:'USE HOTEL DELETE FROM RESERVAS WHERE ID = @id',
   
     getResenas:'USE HOTEL SELECT * FROM RESENAS',
 
-    addReserva: `USE HOTEL INSERT INTO Resenas
-                (DESCRIPCION);`
+    addResenas: `USE HOTEL INSERT INTO Resenas (DESCRIPCION) VALUES (@descripcion);`
 }
