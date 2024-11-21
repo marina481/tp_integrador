@@ -1,3 +1,4 @@
+// Hotel reservations and rooms SQL queries
 export default {
     getReservas:'USE HOTEL SELECT * FROM RESERVAS',
     addReserva: `USE HOTEL INSERT INTO Reservas
@@ -21,5 +22,15 @@ export default {
   
     getResenas:'USE HOTEL SELECT * FROM RESENAS',
 
-    addResenas: `USE HOTEL INSERT INTO Resenas (DESCRIPCION) VALUES (@descripcion);`
+    addResenas: `USE HOTEL INSERT INTO Resenas (DESCRIPCION) VALUES (@descripcion);`,
+      
+    getHabitaciones: 'USE HOTEL; SELECT * FROM HABITACIONES;',
+    
+    addHabitacion: `
+        USE HOTEL;
+        INSERT INTO Habitaciones 
+        (TITLE, PRICE, DESCRIPTION, IMAGEUPLOAD)
+        VALUES (@title, @price, @description, @imageUpload);
+    `
 }
+
