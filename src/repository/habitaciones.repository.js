@@ -43,6 +43,6 @@ export const getHabitacionesRepository = async () => {
        throw new Error('Anda caprichosa la base de datos')
       }
     finally {
-        pool.close
+        pool.close();
     }
 }
