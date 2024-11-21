@@ -8,6 +8,8 @@ const hotelQueries = {
         (NOMBRE, TELEFONO, EMAIL, HABITACION, FECHA_INICIO, FECHA_FIN)
         VALUES (@nombre, @telefono, @email, @habitacion, @fecha_inicio, @fecha_fin);
     `,
+
+    getHabitaciones: 'USE HOTEL; SELECT * FROM HABITACIONES;',
     
     addHabitacion: `
         USE HOTEL;
