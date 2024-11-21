@@ -41,3 +41,13 @@ VALUES ('PRUEBA', 123456, 'ESTA HABITACION ES DE PRUEBA', 'http://localhost:3000
 
 -- Comprobar que los valores se hayan agregado correctamente
 SELECT * FROM Habitaciones;
+
+
+CREATE TABLE Resenas (
+    DESCRIPCION VARCHAR(500) NOT NULL
+);
+
+INSERT INTO Resenas (DESCRIPCION)
+VALUES ('Excelente estadía. Las habitaciones eran cómodas');
+
+SELECT * FROM Resenas;

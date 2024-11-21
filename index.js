@@ -29,8 +29,3 @@ app.use(habitacionesRoutes)
 app.listen(app.get('port'), app.get('host'), () => {
     console.log(`Servidor corriendo en 'http://${app.get('host')}:${app.get('port')}`)
 })
-
-// esto después lo sacamos cuando hagamos las rutas de la API, era para ver si funciona el servidor
-app.get('/', (req,res) => {
-    res.send('<h1>Hola Mundo! Bienvenidos al Server con Express</h1>')
-});
