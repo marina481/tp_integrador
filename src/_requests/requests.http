@@ -1,11 +1,10 @@
 @api = http://localhost:3000
 
+###
 GET {{api}}/Reservas
 
 
 ###
-
-
 POST {{api}}/Reservas
 Content-Type: application/json
 
@@ -18,6 +17,9 @@ Content-Type: application/json
     "fecha_fin": "2024-10-12"
 }
 
+###
+GET {{api}}/Habitaciones
+
 ### 
 POST {{api}}/Habitaciones
 Content-Type: application/json
@@ -25,7 +27,7 @@ Content-Type: application/json
 {
     "title": "Prueba",
     "price": 56560,
-    "description": "Habitación con vista al mar",
-    "imageUpload": "gsfs"
+    "description": "testestes",
+    "imageUpload": "https://i.ibb.co/tBvPcX0/105031814.webp"
     
 }
