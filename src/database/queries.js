@@ -1,4 +1,16 @@
 // Hotel reservations and rooms SQL queries
+const hotelQueries = {
+    getReservas: 'USE HOTEL; SELECT * FROM RESERVAS;',
+    
+    addReserva: `
+        USE HOTEL;
+        INSERT INTO Reservas 
+        (NOMBRE, TELEFONO, EMAIL, HABITACION, FECHA_INICIO, FECHA_FIN)
+        VALUES (@nombre, @telefono, @email, @habitacion, @fecha_inicio, @fecha_fin);
+    `,
+
+    
+
 export default {
     getReservas:'USE HOTEL SELECT * FROM RESERVAS',
     addReserva: `USE HOTEL INSERT INTO Reservas
@@ -25,6 +37,7 @@ export default {
     addResenas: `USE HOTEL INSERT INTO Resenas (DESCRIPCION) VALUES (@descripcion);`,
       
     getHabitaciones: 'USE HOTEL; SELECT * FROM HABITACIONES;',
+
     
     addHabitacion: `
         USE HOTEL;

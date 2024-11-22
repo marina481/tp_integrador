@@ -1,6 +1,7 @@
 @api = http://localhost:3000
 
 
+###
 GET {{api}}/Reservas
 
 ###
@@ -20,17 +21,18 @@ Content-Type: application/json
 }
 
 ###
-
 GET {{api}}/Resenas
 
 ###
-
 POST {{api}}/Resenas
 Content-Type: application/json
 
 {
     "descripcion": "Excelente estadía. Las habitaciones eran cómodas, limpias y con una decoración moderna. El personal fue muy amable y siempre dispuesto a ayudar. El desayuno variado y delicioso, ideal para comenzar el día. La ubicación es perfecta, cerca de los principales puntos de interés. Sin duda, volvería a hospedarme aquí. Lo recomiendo 100%."
 }
+
+###
+GET {{api}}/Habitaciones
 
 ### 
 POST {{api}}/Habitaciones
@@ -39,11 +41,8 @@ Content-Type: application/json
 {
     "title": "Prueba",
     "price": 56560,
-    "description": "Habitación con vista al mar",
-    "imageUpload": "gsfs"
+    "description": "testestes",
+    "imageUpload": "https://i.ibb.co/tBvPcX0/105031814.webp"
     
 }
 
-###
-
-GET {{api}}/Habitaciones
