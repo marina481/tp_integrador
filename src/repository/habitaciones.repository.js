@@ -46,23 +46,3 @@ export const agregarHabitacionesRepository = async (nuevaHabitacion) => {
         pool.close(); 
     }
 };
-
-export const getHabitacionesRepository = async () => {
-    const pool = await getConnection();
-
-    try{
-        const resultado = await pool.request().query(queries.getHabitaciones)
-                
-        console.table(resultado.recordset)
-
-        return resultado
-
-    }
-    catch(error){
-        console.log('Error en el repositorio:', error)
-       throw new Error('Anda caprichosa la base de datos')
-      }
-    finally {
-        pool.close();
-    }
-}
