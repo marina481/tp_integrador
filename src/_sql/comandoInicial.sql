@@ -37,6 +37,7 @@ VALUES ('PRUEBA', 123456, 'ESTA HABITACION ES DE PRUEBA', 'https://i.ibb.co/5syq
 SELECT * FROM Habitaciones;
 
 
+
 -- Eliminar por ID
 DELETE FROM [dbo].[Habitaciones]
       WHERE ID=34
@@ -50,3 +51,13 @@ UPDATE [dbo].[Habitaciones]
       ,[IMAGEUPLOAD] ='https://i.ibb.co/tBvPcX0/105031814.webp'
  WHERE ID=36
 GO
+
+CREATE TABLE Resenas (
+    DESCRIPCION VARCHAR(500) NOT NULL
+);
+
+INSERT INTO Resenas (DESCRIPCION)
+VALUES ('Excelente estadía. Las habitaciones eran cómodas');
+
+SELECT * FROM Resenas;
+
